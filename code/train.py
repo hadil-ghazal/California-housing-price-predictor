@@ -41,8 +41,18 @@ def main():
     y_pred_rf = rf.predict(X_test)
     print("Random Forest R²:", round(r2_score(y_test, y_pred_rf), 4))
     print("Random Forest MAE:", round(mean_absolute_error(y_test, y_pred_rf), 4))
+    
+    #Printing sample predictions for confirmation  few sample predictions
+    sample_df = pd.DataFrame({
+        "Actual (100k)": y_test.values[:5],
+        "Predicted (100k)": y_pred_rf[:5]
+    })
+    
+    print("\nSample Random Forest predictions(first 5 rows):")
+    print(sample_df)
 
 
+	
 if __name__ == "__main__":
     main()
 
